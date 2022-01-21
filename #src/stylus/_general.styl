@@ -1,11 +1,11 @@
 // Hides the scroll bar, but leaves the ability to scroll
 html
-  @media (min-width: 768px)
-    -ms-overflow-style: none
-    scrollbar-width: none
+  @media (min-width 768px)
+    -ms-overflow-style none
+    scrollbar-width none
 
     ::-webkit-scrollbar
-      width: 0px
+      width 0
 
 .container
   margin auto
@@ -130,3 +130,34 @@ html
     flex-set row nowrap
     height 100%
     flex-content-position center center
+
+  &__img
+    img
+      width auto
+      height 80vh
+      min-height 400px
+    @media (max-width: 900px)
+      img
+        height 50vh
+    @media (max-width 500px)
+      img
+        height 30vh
+        min-height: 300px
+  &__video
+    text-align center
+    video
+      width 80%
+      height 80vh
+      min-height 400px
+      object-fit: contain
+
+    @media (max-width 900px)
+      video
+        height 50vh
+
+    @media (max-width 500px)
+      video
+        width 80%
+        height 30vh
+        min-height 300px
+

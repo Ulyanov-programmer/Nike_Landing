@@ -4,6 +4,7 @@ Please note that specifying a value less than 425 is dangerous for the psyche. *
 $layoutWidth = 1600
 $mainFontSize = 18
 $minFontSize = 16
+$accordToMobile = 600px
 
 html
   --main-font-color #000
@@ -30,72 +31,202 @@ body
 
 .main
   width 100%
+  @media (min-width: 1100px)
+    overflow-x hidden
 
   &__body
     firstLevelElementsMargin 20
     background var(--bg)
 
 .fullscreen
-  flex-set row nowrap
+  flex-set column nowrap
   flex-content-position center center
   position relative
-  min-height 100vh
+  background url('../img/bg-lines.svg') no-repeat center / cover
 
-  // adaptive-property 'min-height' 400 300
   &__body
-    flex-basis 90%
-    height 60%
+    width 90%
+    margin 10% 6% 10% 6%
     background #E4DFDC
     border-radius 30px
-    border 3px solid #fff
+    border 5px solid #fff
+    box-shadow 0 0 35px rgba(0, 0, 0, 0.3)
 
     @media (max-width 426px)
-      block-size 90% 70%
+      block-size 95% 70%
       border-radius 0
+      margin-bottom: 15%
+      margin 5% 6% 13% 6%
+
+  &__accord-buttons
+    flex-set column nowrap
+
+    @media (min-width $accordToMobile)
+      padding-right 75px
+
+    @media (max-width $accordToMobile)
+      flex-set row nowrap
+      flex-content-position center center
 
   &__main
+    flex-set row nowrap
     width 50%
+    margin 4% 6% 6% 6%
+
+    @media (max-width 1100px)
+      width auto
+
+    @media (max-width $accordToMobile)
+      flex-set column nowrap
 
   // &__accordion
   &__footer
-    border-bottom-left-radius 30px
-    border-bottom-right-radius 30px
+    @media (min-width: 426px)
+      border-bottom-left-radius 25px
+      border-bottom-right-radius 25px
 
   &__product-img-container
-    position relative
+    position absolute
+    top 0
+    right 0
+    block-size 60% 100%
+    pointer-events none
 
-    img
-      position absolute
-      top 0
-      right 0
+    @media (min-width 2560px)
+      .adaptive-image
+        padding 0 0 70% 0
+    @media (min-width 1800px)
+      .adaptive-image
+        padding: 0 0 85% 0
+    @media (max-width: 1440px)
+      height 70%
+      top 10%
+      right -3%
+    @media (max-width 1100px)
+      display none
+
+    .adaptive-image
+      block-size 100% 100%
+      padding 0 0 100% 0
+
+  &__ref
+    position absolute
+    right 5%
+    bottom 5%
+    color #fff
+    @media (max-width: 1100px)
+      bottom 1%
 
 .accordion
   &__btn
-    font-size 24px
-    font-family Inter-m
-    border-left 1px solid black
+    position relative
+    padding-left 40px
+    max-width 50px
+    max-height 80px
+    width 50px
+    height 80px
 
-    &:hover
-      border-left 3px solid black
+    @media (max-width $accordToMobile)
+      padding 30px 40px 30px 40px
+      max-width 70px
+      max-height 90px
+      width 70px
+      height 90px
 
-  // &__content
+    span
+      display inline-block
+      font-family Inter-med
+      font-size 14px
+      transform translate(0, 0)
+      transition all 0.2s ease
+
+      @media (max-width $accordToMobile)
+        font-size 24
+
+    &:before
+      display inline-block
+      position absolute
+      top 50%
+      left 0
+      transform translate(-50%, -50%)
+      height 100%
+      width 1px
+      background #000
+      content ''
+      transition all 0.3s ease
+
+      @media (max-width 600px)
+        display none
+
+    &:hover, &:focus, &.active
+      &:before
+        width 3px
+        left 1px
+
+      span
+        font-size 24px
+        transform translate(-10px, 0)
+
+        @media (max-width $accordToMobile)
+          font-size 28px
+
+  &__content
+    margin 0 0 30px 0
+
+  &__footer
+    flex-set row wrap
+    flex-content-position flex-start center
+
+    >*
+      &:not(:last-child)
+        margin-right 20px
+
+    @media (max-width $accordToMobile)
+      flex-content-position center center
+
+      >*
+        margin-bottom 10px
+
   &__block
-    flex-set column nowrap
+    hide()
+    transition all 0.3s ease
+    firstLevelElementsMargin 25
+
+    &.active
+      show()
 
   &__price
     font-family Inter-sb
     font-size 30px
 
-    &.dollars
+    &.dollar
       &:before
         content '$'
 
+    &.rupee
+      &:before
+        content '₹'
+
+    &.rub
+      &:before
+        content '₽'
+
   &__card-btn
-    font-family Inter-m
+    background #000
+    color #fff
+    border 2px solid #000
+    font-family Inter-med
+    border-radius 8px
+    padding 15px 50px 15px 50px
+    transition all 0.2s ease
+
+    &:hover, &:focus
+      background #fff
+      color #000
 
 .accord-block
   &__title
-    font-family Inter-sb
+    font-family Inter-bl
     font-size 72px
 
     @media (max-width 768px)
@@ -111,7 +242,7 @@ body
   padding 28px 70px 28px 70px
 
   @media (max-width 768px)
-    flex-flow: row wrap
+    flex-flow row wrap
     padding 14px 35px 14px 35px
 
   @media (max-width 426px)
@@ -144,10 +275,11 @@ body
     flex-content-position center center
     firstLevelElementsMargin 17
 
-    svg
-      &:hover, &:focus
+    &:hover, &:focus
+      svg
         fill #e0d8d8
 
     span
+      color #877C78
       font-family Inter-med
       font-size adapt-fsize(20, 18)

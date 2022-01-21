@@ -12,40 +12,67 @@
     <div class="main__body">
       <section class="fullscreen">
         <div class="fullscreen__body">
+
           @@include('_header.htm', {})
 
-          <main class="fullscreen__main">
+          <div class="fullscreen__main">
+            <div class="fullscreen__accord-buttons">
+              <button data-toggle-elem-number="0" class='accordion__btn' aria-label='firstInfoBlock' type='button'>
+                <span>01</span>
+              </button>
+              <button data-toggle-elem-number="1" class='accordion__btn' aria-label='secondInfoBlock' type='button'>
+                <span>02</span>
+              </button>
+              <button data-toggle-elem-number="2" class='accordion__btn' aria-label='thirdInfoBlock' type='button'>
+                <span>03</span>
+              </button>
+            </div>
             <div class="fullscreen__accordion accordion">
-              <button class='accordion__btn' aria-label='firstInfoBlock' type='button'>01</button>
-              <button class='accordion__btn' aria-label='secondInfoBlock' type='button'>02</button>
-              <button class='accordion__btn' aria-label='thirdInfoBlock' type='button'>03</button>
-              <div class="accordion__content">
-                <div class="accordion__block accord-block">
-                  <h2 class="accord-block__title">Nike Air<br>Max Pre-Day</h2>
-                  <p class="accord-block__text">Taking the classic look of heritage Nike Running into a new realm, the Nike Air Max Pre-Day brings you
-                    a fast-paced look that's ready for today's
-                    world.A true nod to the past with a design made from at least 20% recycled material by weight.</p>
-                </div>
-                <div class="accordion__block accord-block">
-                  <h2 class="accord-block__title">Sabaton <br> The Red Baron</h2>
-                  <p class="accord-block__text">Man and machine and nothing there in between
-                    A flying circus and a man from Prussia
-                    The sky and a plane, this man commands his domain
-                    The western front and all the way to Russia</p>
+              <div class="accordion__body">
+                <div class="accordion__content">
+                  <div class="accordion__block accord-block">
+                    <h2 class="accord-block__title">Nike Air Max Pre-Day</h2>
+                    <p class="accord-block__text">Taking the classic look of heritage Nike Running into a new realm, the Nike Air Max Pre-Day brings
+                      you
+                      a fast-paced look that's ready for today's
+                      world.A true nod to the past with a design made from at least 20% recycled material by weight.</p>
+                  </div>
+                  <div class="accordion__block accord-block">
+                    <h2 class="accord-block__title">Sabaton <br> Seven Pillars of Wisdom</h2>
+                    <p class="accord-block__text">As the darkness falls and Arabia calls
+                      One man spreads his wings, as the battle begins
+                      May the land lay claim on to Lawrence name
+                      Seven pillars of wisdom lights the flame</p>
+                  </div>
+                  <div class="accordion__block accord-block">
+                    <h2 class="accord-block__title">Sabaton <br> The Red Baron</h2>
+                    <p class="accord-block__text">Man and machine and nothing there in between
+                      A flying circus and a man from Prussia
+                      The sky and a plane, this man commands his domain
+                      The western front and all the way to Russia</p>
+                  </div>
                 </div>
               </div>
-              <button class="accordion__card-btn" type='button'>Add to Bag</button>
-              <span class="accordion__price dollars">11,495.00</span>
+              <footer class="accordion__footer">
+                <button class="accordion__card-btn" type='button'>Add to Bag</button>
+                <span class="accordion__price rupee">11,495.00</span>
+              </footer>
             </div>
-          </main>
+          </div>
           <footer class="fullscreen__footer fs-footer">
             <div class="fs-footer__images">
-              <img class="fs-footer__img" src="img/cross1.jpg" loading='lazy' alt='cross1' width=164 height=144>
-              <img class="fs-footer__img" src="img/cross2.jpg" loading='lazy' alt='cross2' width=164 height=144>
-              <img class="fs-footer__img" src="img/cross3.jpg" loading='lazy' alt='cross3' width=164 height=144>
+              <button data-modal-link="modal_img" aria-label='cross1' type='button'>
+                <img class="fs-footer__img" src="img/cross1.jpg" loading='lazy' alt='cross1' width=164 height=144>
+              </button>
+              <button data-modal-link="modal_img" aria-label='cross1' type='button'>
+                <img class="fs-footer__img" src="img/cross2.jpg" loading='lazy' alt='cross2' width=164 height=144>
+              </button>
+              <button data-modal-link="modal_img" aria-label='cross1' type='button'>
+                <img class="fs-footer__img" src="img/cross3.jpg" loading='lazy' alt='cross3' width=164 height=144>
+              </button>
             </div>
             <div class="fs-footer__video-play-container">
-              <button class='fs-footer__video-btn' aria-label='play video' type='button'>
+              <button data-modal-link='modal_1' class='fs-footer__video-btn' aria-label='play video' type='button'>
                 <svg width="91" height="91" viewBox="0 0 91 91" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="45.5" cy="45.5" r="44" stroke="#877C78" stroke-width="3" />
                   <path d="M40 57L57 45.9175L40 35V57Z" fill="#877C78" />
@@ -55,25 +82,31 @@
             </div>
           </footer>
         </div>
-        <!-- <a href='//nickelfox.com' target='_blank' rel='noopener noreferrer'>www.nickelfox.com</a>
+        <a class="fullscreen__ref" href='//nickelfox.com' target='_blank' rel='noopener noreferrer'>www.nickelfox.com</a>
+
         <div class="fullscreen__product-img-container">
-          <img src="img" alt='mainProduct'>
-        </div> -->
+          <div class="adaptive-image">
+            <img id="mainImage" src="img/mainImage.png" alt='mainProduct'>
+          </div>
+        </div>
       </section>
     </div>
   </main>
 
   <section id="modal_1" class='modal-window'>
     <div class="modal-window__body">
-      <div class="modal-window__content">
-        <button type='button' class="modal-closer">close me</button>
-
-        <form class="searchbar">
-          <input class="searchbar__input" type='text' placeholder='input' required>
-          <button aria-label="search" class="searchbar__submit" type='submit'>
-            <img src="img/icons/loupe.svg" alt="search">
-          </button>
-        </form>
+      <div class="modal-window__content modal-window__video">
+        <video poster='video/poster.png' controls>
+          <source src='video/video.webm' type='video/webm'>
+          <source src='video/video.mp4' type='video/mp4'>
+        </video>
+      </div>
+    </div>
+  </section>
+  <section id="modal_img" class='modal-window'>
+    <div class="modal-window__body">
+      <div class="modal-window__content modal-window__img">
+        <img src="img/cross3.jpg" loading='lazy' alt='someImg'>
       </div>
     </div>
   </section>

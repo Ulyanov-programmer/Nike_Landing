@@ -38,14 +38,14 @@ export default class Accordion {
    * This error will be printed to the console if some input argument are null or white spaces.
    * @throws The count of buttons != the count content-elements.
    */
-  constructor(btnsSelector: string, contentBlockSelector: string, animationDuration: number,
+  constructor(btnsSelector: string, contentBlocksSelector: string, animationDuration: number,
     addActiveForFirstElements: boolean = true) {
-    if (isNullOrWhiteSpaces(btnsSelector, contentBlockSelector) || animationDuration < 0) {
+    if (isNullOrWhiteSpaces(btnsSelector, contentBlocksSelector) || animationDuration < 0) {
       throw '[ACCORDION] Incorrect arguments!'
     }
 
     this.accordButtons = document.querySelectorAll(btnsSelector);
-    this.accordContentElements = Array.from(document.querySelectorAll(contentBlockSelector).values())
+    this.accordContentElements = Array.from(document.querySelectorAll(contentBlocksSelector).values())
     this.animationDuration = animationDuration + 100;
 
     if (this.accordButtons.length != this.accordContentElements.length) {

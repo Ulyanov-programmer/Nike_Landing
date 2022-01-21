@@ -37,14 +37,16 @@ export default class ModalWindowMenu {
    * @throws Some selector is null or white spaces - 
    * This error will be printed to the console if some input argument are null or white spaces.
    */
-  constructor(modalLinksSelector: string, modalClosersSelector: string, fsMenuSelector: string,
-    transitionTimeout: number) {
-    if (isNullOrWhiteSpaces(modalLinksSelector, modalClosersSelector, fsMenuSelector)) {
+  constructor(modalLinksSelector: string, modalClosersSelector: string,
+    transitionTimeout: number, fsMenuSelector: string = null) {
+    if (isNullOrWhiteSpaces(modalLinksSelector, modalClosersSelector)) {
       throw new Error('[MODALWINDOW] Incorrect arguments!');
     }
 
     ModalWindowMenu.transitionTimeout = transitionTimeout;
-    ModalWindowMenu.fsMenuClasslist = document.querySelector(fsMenuSelector).classList;
+    if (fsMenuSelector) {
+      ModalWindowMenu.fsMenuClasslist = document.querySelector(fsMenuSelector).classList;
+    }
 
     ModalWindowMenu.modalLinks = document.querySelectorAll(modalLinksSelector);
     for (let modalLink of ModalWindowMenu.modalLinks) {
@@ -107,7 +109,7 @@ export default class ModalWindowMenu {
   }
 
   private toggleBodyScroll(toggleScrollOn: boolean) {
-    if (toggleScrollOn && !ModalWindowMenu.fsMenuClasslist.contains('active')) {
+    if (toggleScrollOn) {
       body.style.paddingRight = '0';
       body.classList.remove("scroll-block");
     } else {

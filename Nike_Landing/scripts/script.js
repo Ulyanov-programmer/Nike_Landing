@@ -14,11 +14,8 @@ import ModalWindowMenu from './modules/modalWindow.js';
 */
 new ModalWindowMenu(
 // i recommend this value.
-'[data-modal-link]', '.modal-closer', '.fullscreen-navmenu', 0.5);
+'[data-modal-link]', '.modal-closer', 0.5);
 // accordion //
 import Accordion from './modules/accord.js';
-let someAccrod = new Accordion('.accordion__btn', '.accordion__item', 500);
-// parallax //
-import { Parallax, ParallaxElement } from './modules/parallax.js';
-let someParallaxMenu = new Parallax('.fullscreen__body', 768, new ParallaxElement('.fullscreen__bg-img', 5));
+let someAccrod = new Accordion('.accordion__btn', '.accord-block', 300);
 //? your scripts //
