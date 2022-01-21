@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@@include('_head.htm', {
+"title": "Nike landing",
+})
+
+<body>
+  <h1 hidden>Taking the classic look of heritage Nike Running into a new realm</h1>
+
+  <main class="main">
+    <div class="main__body">
+      <section class="fullscreen">
+        <div class="fullscreen__body">
+          @@include('_header.htm', {})
+
+          <main class="fullscreen__main">
+            <div class="fullscreen__accordion accordion">
+              <button class='accordion__btn' aria-label='firstInfoBlock' type='button'>01</button>
+              <button class='accordion__btn' aria-label='secondInfoBlock' type='button'>02</button>
+              <button class='accordion__btn' aria-label='thirdInfoBlock' type='button'>03</button>
+              <div class="accordion__content">
+                <div class="accordion__block accord-block">
+                  <h2 class="accord-block__title">Nike Air<br>Max Pre-Day</h2>
+                  <p class="accord-block__text">Taking the classic look of heritage Nike Running into a new realm, the Nike Air Max Pre-Day brings you
+                    a fast-paced look that's ready for today's
+                    world.A true nod to the past with a design made from at least 20% recycled material by weight.</p>
+                </div>
+                <div class="accordion__block accord-block">
+                  <h2 class="accord-block__title">Sabaton <br> The Red Baron</h2>
+                  <p class="accord-block__text">Man and machine and nothing there in between
+                    A flying circus and a man from Prussia
+                    The sky and a plane, this man commands his domain
+                    The western front and all the way to Russia</p>
+                </div>
+              </div>
+              <button class="accordion__card-btn" type='button'>Add to Bag</button>
+              <span class="accordion__price dollars">11,495.00</span>
+            </div>
+          </main>
+          <footer class="fullscreen__footer fs-footer">
+            <div class="fs-footer__images">
+              <img class="fs-footer__img" src="img/cross1.jpg" loading='lazy' alt='cross1' width=164 height=144>
+              <img class="fs-footer__img" src="img/cross2.jpg" loading='lazy' alt='cross2' width=164 height=144>
+              <img class="fs-footer__img" src="img/cross3.jpg" loading='lazy' alt='cross3' width=164 height=144>
+            </div>
+            <div class="fs-footer__video-play-container">
+              <button class='fs-footer__video-btn' aria-label='play video' type='button'>
+                <svg width="91" height="91" viewBox="0 0 91 91" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="45.5" cy="45.5" r="44" stroke="#877C78" stroke-width="3" />
+                  <path d="M40 57L57 45.9175L40 35V57Z" fill="#877C78" />
+                </svg>
+                <span>Watch Video</span>
+              </button>
+            </div>
+          </footer>
+        </div>
+        <!-- <a href='//nickelfox.com' target='_blank' rel='noopener noreferrer'>www.nickelfox.com</a>
+        <div class="fullscreen__product-img-container">
+          <img src="img" alt='mainProduct'>
+        </div> -->
+      </section>
+    </div>
+  </main>
+
+  <section id="modal_1" class='modal-window'>
+    <div class="modal-window__body">
+      <div class="modal-window__content">
+        <button type='button' class="modal-closer">close me</button>
+
+        <form class="searchbar">
+          <input class="searchbar__input" type='text' placeholder='input' required>
+          <button aria-label="search" class="searchbar__submit" type='submit'>
+            <img src="img/icons/loupe.svg" alt="search">
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</body>
+
+@@include('_scripts.htm', {
+'generalScript': true,
+})
+
+</html>
+
+<!-- 
+  Made in Russia, with ❤, by Ivan Ulyanov. 
+-->

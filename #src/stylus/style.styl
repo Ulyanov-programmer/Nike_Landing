@@ -1,0 +1,153 @@
+/* Insert layout width below.
+If this is not done, when using a responsive font, the result will not match the layout.
+Please note that specifying a value less than 425 is dangerous for the psyche. */
+$layoutWidth = 1600
+$mainFontSize = 18
+$minFontSize = 16
+
+html
+  --main-font-color #000
+  --main-font-family Inter
+  --bg #B1A29D
+
+@import '_nullStyle'
+@import '_mixins'
+@import '_header'
+@import '_fonts'
+@import '_general'
+
+body
+  height 100%
+  color var(--main-font-color)
+  font adapt-fsize($mainFontSize, $minFontSize) var(--main-font-family)
+
+  &.scroll-block
+    overflow hidden
+
+  button
+    font-family var(--main-font-family)
+    color var(--main-font-color)
+
+.main
+  width 100%
+
+  &__body
+    firstLevelElementsMargin 20
+    background var(--bg)
+
+.fullscreen
+  flex-set row nowrap
+  flex-content-position center center
+  position relative
+  min-height 100vh
+
+  // adaptive-property 'min-height' 400 300
+  &__body
+    flex-basis 90%
+    height 60%
+    background #E4DFDC
+    border-radius 30px
+    border 3px solid #fff
+
+    @media (max-width 426px)
+      block-size 90% 70%
+      border-radius 0
+
+  &__main
+    width 50%
+
+  // &__accordion
+  &__footer
+    border-bottom-left-radius 30px
+    border-bottom-right-radius 30px
+
+  &__product-img-container
+    position relative
+
+    img
+      position absolute
+      top 0
+      right 0
+
+.accordion
+  &__btn
+    font-size 24px
+    font-family Inter-m
+    border-left 1px solid black
+
+    &:hover
+      border-left 3px solid black
+
+  // &__content
+  &__block
+    flex-set column nowrap
+
+  &__price
+    font-family Inter-sb
+    font-size 30px
+
+    &.dollars
+      &:before
+        content '$'
+
+  &__card-btn
+    font-family Inter-m
+
+.accord-block
+  &__title
+    font-family Inter-sb
+    font-size 72px
+
+    @media (max-width 768px)
+      font-size 48px
+
+  &__text
+    font-family Inter-l
+
+.fs-footer
+  flex-set row nowrap
+  flex-content-position space-between center
+  background #F6F0F0
+  padding 28px 70px 28px 70px
+
+  @media (max-width 768px)
+    flex-flow: row wrap
+    padding 14px 35px 14px 35px
+
+  @media (max-width 426px)
+    padding 10px 15px 10px 15px
+
+  &__images
+    flex-set row wrap
+    padding 0 20px 0 0
+    margin 0 -20px 0 -20px
+
+    @media (max-width 768px)
+      justify-content center
+
+    picture
+      display inline-block
+      margin 24px 24px 24px 24px
+
+  &__img
+    display inline-block
+    border-radius 8px
+
+  &__video-play-container
+    @media (max-width 768px)
+      flex-grow 1
+      flex-set row nowrap
+      justify-content center
+
+  &__video-btn
+    flex-set column nowrap
+    flex-content-position center center
+    firstLevelElementsMargin 17
+
+    svg
+      &:hover, &:focus
+        fill #e0d8d8
+
+    span
+      font-family Inter-med
+      font-size adapt-fsize(20, 18)

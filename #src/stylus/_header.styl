@@ -1,0 +1,61 @@
+@import '_mixins'
+
+.header
+  flex-set row nowrap
+  justify-content flex-start
+  z-index 5
+  padding 28px 70px 28px 70px
+  @media (max-width 768px)
+    padding 14px 35px 14px 35px
+  @media (max-width: 426px)
+    padding 10px 15px 10px 15px
+
+  &__body
+    flex-set row nowrap
+    flex-content-position space-between center
+    padding 10px 0 10px 0
+
+    *
+      z-index 5
+
+.navmenu
+  &__body
+    display flex
+
+  &__list
+    flex-set row wrap
+    padding 0 5px 0 5px
+
+    li
+      flex-set row nowrap
+      flex-content-position center center
+      transition all 0.2s ease 0s
+      margin 0 10px 0 10px
+
+      &:not(:last-child)
+        adaptive-property 'padding-right' 50 30
+
+      a
+        flex-set row nowrap
+        flex-content-position center center
+        flex 1 0 100%
+
+        padding-top: 7px
+        padding-bottom: 7px
+        color #000
+        block-size 100% 100%
+        border-bottom: 2px solid rgba(255, 255, 255, 0)
+
+        &:hover, &:focus
+          font-family Inter-b
+          border-bottom 2px solid black
+          
+
+.logo
+  z-index 10
+  adaptive-property 'margin-right' 60 25
+  display inline-block
+
+  img
+    height 100%
+    
